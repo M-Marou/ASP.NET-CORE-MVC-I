@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using StudentManagement2.Data;
 using StudentManagement2.Models;
 
@@ -12,8 +15,11 @@ namespace StudentManagement2.Controllers
 {
     public class StudentsController : Controller
     {
-        public StudentsController()
+        private readonly IConfiguration _configuration;
+
+        public StudentsController(IConfiguration configuration)
         {
+            this._configuration = configuration;
         }
 
         // GET: Students
@@ -22,10 +28,11 @@ namespace StudentManagement2.Controllers
             return View();
         }
 
-        // GET: Students/Edit/5
+        // GET: Students/AddOrEdit/
         public IActionResult AddOrEdit(int? id)
         {
-            return View();
+            StudentsViewModel studentsViewModel = new StudentsViewModel();
+            return View(studentsViewModel);
         }
 
         // POST: Students/Edit/5
@@ -38,6 +45,16 @@ namespace StudentManagement2.Controllers
 
             if (ModelState.IsValid)
             {
+                using(SqlConnection  sqlConnection = new SqlConnection(_configuration.GetConnectionString("DevConnection"))){
+                    sqlConnection.Open();
+                    SqlCommand sqlCMD = new SqlCommand("spStudents_AddOrEdit", sqlConnection);
+                    sqlCMD.CommandType = CommandType.StoredProcedure;
+                    sqlCMD.Parameters.AddWithValue("StudentID", studentsViewModel.Student_ID);
+                    sqlCMD.Parameters.AddWithValue("StudentName", studentsViewModel.Student_Name);
+                    sqlCMD.Parameters.AddWithValue("StudentCIN", studentsViewModel.Student_CIN);
+                    sqlCMD.Parameters.AddWithValue("StudentAddress", studentsViewModel.Student_Address);
+                    sqlCMD.ExecuteNonQuery();
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View();

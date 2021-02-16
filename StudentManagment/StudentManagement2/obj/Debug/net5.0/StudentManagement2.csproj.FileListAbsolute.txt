@@ -165,3 +165,6 @@ C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentManagment\StudentManage
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentManagment\StudentManagement2\obj\Debug\net5.0\ref\StudentManagement2.dll
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentManagment\StudentManagement2\obj\Debug\net5.0\StudentManagement2.pdb
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentManagment\StudentManagement2\obj\Debug\net5.0\StudentManagement2.genruntimeconfig.cache
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentManagment\StudentManagement2\obj\Debug\net5.0\Razor\Views\Students\AddOrEdit.cshtml.g.cs
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentManagment\StudentManagement2\obj\Debug\net5.0\Razor\Views\Students\Delete.cshtml.g.cs
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentManagment\StudentManagement2\obj\Debug\net5.0\Razor\Views\Students\Index.cshtml.g.cs
