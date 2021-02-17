@@ -74,7 +74,8 @@ namespace StudentManagement2.Controllers
         // GET: Students/Delete/5
         public IActionResult Delete(int? id)
         {
-            return View();
+            StudentsViewModel studentsViewModel = FetchStudentByID(id);
+            return View(studentsViewModel);
         }
 
         // POST: Students/Delete/5
@@ -82,6 +83,14 @@ namespace StudentManagement2.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
+            using (SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("DevConnection")))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCMD = new SqlCommand("spStudents_DeleteByID", sqlConnection);
+                sqlCMD.CommandType = CommandType.StoredProcedure;
+                sqlCMD.Parameters.AddWithValue("StudentID",id);
+                sqlCMD.ExecuteNonQuery();
+            }
             return RedirectToAction(nameof(Index));
         }
 
