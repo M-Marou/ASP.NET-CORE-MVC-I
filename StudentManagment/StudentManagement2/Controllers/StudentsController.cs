@@ -25,13 +25,24 @@ namespace StudentManagement2.Controllers
         // GET: Students
         public IActionResult Index()
         {
-            return View();
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("DevConnection")))
+            {
+                sqlConnection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("spStudents_ViewAll", sqlConnection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dataAdapter.Fill(dataTable);
+            }
+                return View(dataTable);
         }
 
         // GET: Students/AddOrEdit/
         public IActionResult AddOrEdit(int? id)
         {
             StudentsViewModel studentsViewModel = new StudentsViewModel();
+            if (id > 0)
+                studentsViewModel = FetchStudentByID(id);
             return View(studentsViewModel);
         }
 
@@ -72,6 +83,31 @@ namespace StudentManagement2.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             return RedirectToAction(nameof(Index));
+        }
+
+        [NonAction]
+        public StudentsViewModel FetchStudentByID(int? id)
+        {
+            DataTable dataTable = new DataTable();
+
+            StudentsViewModel studentsViewModel = new StudentsViewModel();
+
+            using (SqlConnection sqlConnection = new SqlConnection(_configuration.GetConnectionString("DevConnection")))
+            {
+                sqlConnection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter("spStudents_ViewByID", sqlConnection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dataAdapter.SelectCommand.Parameters.AddWithValue("StudentID", id);
+                dataAdapter.Fill(dataTable);
+                if(dataTable.Rows.Count == 1)
+                {
+                    studentsViewModel.Student_ID = Convert.ToInt32(dataTable.Rows[0]["Student_ID"].ToString());
+                    studentsViewModel.Student_Name = dataTable.Rows[0]["Student_Name"].ToString();
+                    studentsViewModel.Student_CIN = dataTable.Rows[0]["Student_CIN"].ToString();
+                    studentsViewModel.Student_Address = dataTable.Rows[0]["Student_Address"].ToString();
+                }
+                return studentsViewModel;
+            }
         }
     }
 }
