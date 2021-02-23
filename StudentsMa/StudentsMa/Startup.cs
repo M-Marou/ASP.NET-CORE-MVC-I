@@ -32,13 +32,21 @@ namespace StudentsMa
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            //services.AddAuthentication()
-            //    .AddGoogle()
-            //    .AddFacebook();
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = Configuration["App:GoogleClientId"];
+                    options.ClientSecret = Configuration["App:GoogleClientSecret"];
+                })
+                .AddFacebook(options =>
+                {
+                    options.AppId = Configuration["App:FacebookClientId"];
+                    options.AppSecret = Configuration["App:FacebookClientSecret"];
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
