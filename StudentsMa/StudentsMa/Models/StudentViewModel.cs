@@ -10,8 +10,11 @@ namespace StudentsManagement_III.Models
     {
         [Key]
         public int studentID { get; set; }
+        [Required(ErrorMessage = "Please add a student name")]
         public string studentName { get; set; }
+        [Required(ErrorMessage = "Please add a CIN")]
         public string studentCIN { get; set; }
+        [Required(ErrorMessage = "Please add an address")]
         public string studentAddress { get; set; }
 
         public StudentViewModel()
