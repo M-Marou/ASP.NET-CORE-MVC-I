@@ -21,3 +21,8 @@ C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\obj\De
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\obj\Debug\net5.0\ref\StudentsMa3.dll
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\obj\Debug\net5.0\StudentsMa3.pdb
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\obj\Debug\net5.0\StudentsMa3.genruntimeconfig.cache
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa3\StudentsMa3\obj\Debug\net5.0\StudentsMa3.csproj.CopyComplete
