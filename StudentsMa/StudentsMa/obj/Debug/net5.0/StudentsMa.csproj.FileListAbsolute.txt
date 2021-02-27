@@ -374,3 +374,5 @@ C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debu
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5.0\ref\StudentsMa.dll
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5.0\StudentsMa.pdb
 C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5.0\StudentsMa.genruntimeconfig.cache
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5.0\Razor\Views\Admin\CreateRole.cshtml.g.cs
+C:\Users\msckt\OneDrive\Bureau\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5.0\Razor\Views\Admin\ListRoles.cshtml.g.cs

@@ -10,9 +10,10 @@ namespace StudentsMa3.Controllers
     public class StudentsController
     {
         private IYCRepository<StudentsModel> _YCRepository;
-        public StudentsController()
+
+        public StudentsController(IYCRepository<StudentsModel> YCRepository)
         {
-            _YCRepository = new StudentsRepository();
+            _YCRepository = YCRepository;
         }
         public string index(int id)
         {

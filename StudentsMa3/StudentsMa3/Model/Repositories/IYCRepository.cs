@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace StudentsMa3.Model.Repositories
 {
-    interface IYCRepository<TEntity>
+    public interface IYCRepository<TEntity>
     {
         TEntity Get(int id);
     }
