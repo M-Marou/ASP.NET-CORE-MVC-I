@@ -12,10 +12,12 @@ namespace StudentsMa.Controllers
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly UserManager<IdentityUser> userManager;
 
-        public AdminController(RoleManager<IdentityRole> roleManager)
+        public AdminController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
         {
             this.roleManager = roleManager;
+            this.userManager = userManager;
         }
         [HttpGet]
         public ActionResult CreateRole()
@@ -36,7 +38,7 @@ namespace StudentsMa.Controllers
                 IdentityResult result = await this.roleManager.CreateAsync(role);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction(actionName: "Index", controllerName: "Student");
+                    return RedirectToAction(nameof(ListRoles));
                 }
                 foreach(IdentityError error in result.Errors)
                 {
@@ -51,6 +53,40 @@ namespace StudentsMa.Controllers
         {
             var roles = roleManager.Roles;
             return View(roles);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Edit(string id)
+        {
+
+            if (id is null)
+            {
+                ViewBag.ErrorMessage = "Please Add Role Id";
+                return View("NotFound");
+            }
+            IdentityRole role = await this.roleManager.FindByIdAsync(id);
+
+            if (role is null)
+            {
+                ViewBag.ErrorMessage = $"The role ID {id} cannot be found !";
+                return View("NotFound");
+            }
+
+            EditRoleViewModel model = new EditRoleViewModel()
+            {
+                Id = role.Id,
+                RoleName = role.Name
+            };
+
+            foreach(IdentityUser user in userManager.Users)
+            {
+               if (await userManager.IsInRoleAsync(user, role.Name))
+                {
+                    model.Users.Add(user.Email);
+                }
+            }
+
+            return View(model);
         }
     }
 }
