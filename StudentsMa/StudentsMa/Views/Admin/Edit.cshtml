@@ -31,8 +31,8 @@
                         <h5 class="card-title"> Users list</h5>
                         <p class="card-text"> No users at the moment</p>
                         <div class="text-white">
-                            <a class="btn btn-sm btn-primary"> Add user</a>
-                            <a class="btn btn-sm btn-secondary"> Back to list</a>
+                            <a asp-action="EditUsersRole" asp-route-idRole="@Model.Id" class="btn btn-sm btn-primary"> Add/Remove users</a>
+                            <a asp-action="ListRoles" class="btn btn-sm btn-secondary"> Back to list</a>
                         </div>
                     </div>
                 </div>
@@ -49,8 +49,8 @@
                             }
                         </p>
                         <div class="text-white">
-                            <a class="btn btn-sm btn-primary"> Add user</a>
-                            <a class="btn btn-sm btn-secondary"> Back to list</a>
+                            <a asp-action="EditUsersRole" asp-route-idRole="@Model.Id" class="btn btn-sm btn-primary"> Add/Remove users</a>
+                            <a asp-action="ListRoles" class="btn btn-sm btn-secondary"> Back to list</a>
                         </div>
                     </div>
                 </div>
