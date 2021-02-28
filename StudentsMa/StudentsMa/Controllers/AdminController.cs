@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace StudentsMa.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -190,13 +191,13 @@ namespace StudentsMa.Controllers
                 {
                     result = await userManager.AddToRoleAsync(user, role.Name);
                 }
-            }
 
-            if (!result.Succeeded)
-            {
-                foreach(var item in result.Errors)
+                if (result != null && !result.Succeeded)
                 {
-                    ModelState.AddModelError(string.Empty, item.Description);
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, item.Description);
+                    }
                 }
             }
 
