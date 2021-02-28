@@ -9,8 +9,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post">
             <div class="form-group">
                 <label asp-for="Id" class="control-label"></label>
                 <input disabled asp-for="Id" class="form-control" />
@@ -18,16 +17,48 @@
             <div class="form-group">
                 <label asp-for="RoleName" class="control-label"></label>
                 <input asp-for="RoleName" class="form-control" />
+                <span asp-validation-for="RoleName" hidden class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <button class="btn btn-primary">Update</button>
+                <a asp-action="ListRoles" class="btn btn-dark">Cancel</a>
             </div>
+
+            @if (Model.Users.Count == 0)
+            {
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> Users list</h5>
+                        <p class="card-text"> No users at the moment</p>
+                        <div class="text-white">
+                            <a class="btn btn-sm btn-primary"> Add user</a>
+                            <a class="btn btn-sm btn-secondary"> Back to list</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> Users list</h5>
+                        <p class="card-text"> 
+                            @foreach (string userEmail in Model.Users)
+                            {
+                                @userEmail <br />
+                            }
+                        </p>
+                        <div class="text-white">
+                            <a class="btn btn-sm btn-primary"> Add user</a>
+                            <a class="btn btn-sm btn-secondary"> Back to list</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="text text-danger" asp-validation-summary="All"></div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="ListRoles">Cancel</a>
 </div>
 
 

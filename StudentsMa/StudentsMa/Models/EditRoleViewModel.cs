@@ -8,14 +8,10 @@ namespace StudentsMa.Models
 {
     public class EditRoleViewModel
     {
-        //public EditRoleViewModel()
-        //{
-        //    Users = new List<string>();
-        //}
 
         public string Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please fill the role field")]
         [Display(Name ="Enter The New Name :")]
         public string RoleName { get; set; }
 

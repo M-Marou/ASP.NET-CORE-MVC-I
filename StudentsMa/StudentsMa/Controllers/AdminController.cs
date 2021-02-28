@@ -61,7 +61,7 @@ namespace StudentsMa.Controllers
 
             if (id is null)
             {
-                ViewBag.ErrorMessage = "Please Add Role Id";
+                ViewBag.ErrorMessage = "There is no Role ID Selected";
                 return View("NotFound");
             }
             IdentityRole role = await this.roleManager.FindByIdAsync(id);
@@ -75,14 +75,45 @@ namespace StudentsMa.Controllers
             EditRoleViewModel model = new EditRoleViewModel()
             {
                 Id = role.Id,
-                RoleName = role.Name
-            };
+                RoleName = role.Name,
+                Users = new List<string>()
+        };
 
             foreach(IdentityUser user in userManager.Users)
             {
                if (await userManager.IsInRoleAsync(user, role.Name))
                 {
                     model.Users.Add(user.Email);
+                }
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(EditRoleViewModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                IdentityRole role = await this.roleManager.FindByIdAsync(model.Id);
+
+                if (role is null)
+                {
+                    ViewBag.ErrorMessage = $"The role ID {model.Id} cannot be found !";
+                    return View("NotFound");
+                }
+
+                role.Name = model.RoleName;
+                IdentityResult result = await roleManager.UpdateAsync(role);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction(nameof(ListRoles));
+                }
+
+                foreach(var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
 
