@@ -13,9 +13,9 @@ namespace StudentsMa.Controllers
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
-        private readonly UserManager<IdentityUser> userManager;
+        private readonly UserManager<AppUser> userManager;
 
-        public AdminController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
+        public AdminController(RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
@@ -80,7 +80,7 @@ namespace StudentsMa.Controllers
                 Users = new List<string>()
         };
 
-            foreach(IdentityUser user in userManager.Users)
+            foreach(AppUser user in userManager.Users)
             {
                if (await userManager.IsInRoleAsync(user, role.Name))
                 {
@@ -140,7 +140,7 @@ namespace StudentsMa.Controllers
 
             List<EditUsersRoleViewModel> Models = new List<EditUsersRoleViewModel>();
 
-            foreach(IdentityUser user in userManager.Users)
+            foreach(AppUser user in userManager.Users)
             {
                 EditUsersRoleViewModel model = new EditUsersRoleViewModel()
                 {
@@ -182,7 +182,7 @@ namespace StudentsMa.Controllers
 
             for (int i = 0; i < model.Count; i++)
             {
-                IdentityUser user = await userManager.FindByIdAsync(model[i].UserId);
+                var user = await userManager.FindByIdAsync(model[i].UserId);
                 if (await userManager.IsInRoleAsync(user, role.Name) && !model[i].IsSelected)
                 {
                     result = await userManager.RemoveFromRoleAsync(user, role.Name);
@@ -202,6 +202,13 @@ namespace StudentsMa.Controllers
             }
 
             return RedirectToAction(nameof(Edit), new { id = idRole });
+        }
+
+        [HttpGet]
+        public ActionResult ListUsers()
+        {
+            var users = userManager.Users.Where(u => u.Email != User.Identity.Name);
+            return View(users);
         }
     }
 }

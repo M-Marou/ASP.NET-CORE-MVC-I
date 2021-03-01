@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using StudentsManagement_III.Models;
+using StudentsMa.Models;
 
 namespace StudentsManagement_III.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

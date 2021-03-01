@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> signInManager
+@using StudentsMa.Models;
+@inject SignInManager<AppUser> signInManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +39,7 @@
                                 <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button">Manage Roles</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" asp-action="ListRoles" asp-controller="Admin">Roles</a>
-                                    <a class="dropdown-item" asp-action="ListRoles" asp-controller="Admin">Users</a>
+                                    <a class="dropdown-item" asp-action="ListUsers" asp-controller="Admin">Users</a>
                                 </div>
                             </li>
                         }
