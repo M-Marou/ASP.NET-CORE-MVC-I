@@ -1,0 +1,14 @@
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\StudentsMa.UnitTests.dll
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\StudentsMa.UnitTests.pdb
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\obj\Debug\StudentsMa.UnitTests.csprojAssemblyReference.cache
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\obj\Debug\StudentsMa.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\obj\Debug\StudentsMa.UnitTests.csproj.CopyComplete
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\obj\Debug\StudentsMa.UnitTests.dll
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa.UnitTests\obj\Debug\StudentsMa.UnitTests.pdb
