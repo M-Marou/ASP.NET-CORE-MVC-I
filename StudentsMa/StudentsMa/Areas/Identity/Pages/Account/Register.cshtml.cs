@@ -92,6 +92,11 @@ namespace StudentsMa.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    if(User.IsInRole("Admin") && _signInManager.IsSignedIn(User))
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

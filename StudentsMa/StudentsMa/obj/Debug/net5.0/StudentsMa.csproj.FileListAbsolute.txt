@@ -423,3 +423,4 @@ C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5
 C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml.g.cs
 C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_StatusMessage.cshtml.g.cs
 C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\obj\Debug\net5.0\Razor\Views\Admin\ListUsers.cshtml.g.cs
+C:\Users\Youcode\Desktop\ASP.NET-CORE-MVC-I\StudentsMa\StudentsMa\bin\Debug\net5.0\libman.json

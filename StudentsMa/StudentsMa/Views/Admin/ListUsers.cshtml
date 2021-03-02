@@ -11,7 +11,7 @@
     <hr />
 </div>
 
-<table id="UsersTable" class="table table-hover">
+<table class="table table-hover">
     <thead class="alert-dark">
         <tr>
             <th scope="col">#</th>
@@ -31,7 +31,7 @@
                 <td>@user.Email</td>
 
                 <td>
-                    <form method="post" asp-action="DeleteUser" asp-controller="Account" asp-route-id="@user.Id">
+                    <form method="post" asp-route-id="@user.Id">
                         <a class="btn btn-primary text-white btn-sm" asp-action="EditUser" asp-controller="Account" asp-route-id="@user.Id">Update</a>
                         <button type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('Are you sure would you like to delete this user!')">Delete</button>
                     </form>
@@ -47,16 +47,6 @@
 </table>
 
 <div class="my-5 text-center">
-    <a asp-action="Register">Add User</a> |
+    <a asp-area="Identity" asp-page="/Account/Register">Add User</a> |
     <a asp-action="index" asp-controller="student">Back to Home</a>
 </div>
-
-<div class=" my-3 text-danger" asp-validation-summary="All"></div>
-
-@*@section DTListUsers{
-    <script>
-            $(document).ready(function () {
-                $('#UsersTable').dataTable();
-            });
-    </script>
-}*@
